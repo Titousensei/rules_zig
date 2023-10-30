@@ -1,0 +1,13 @@
+load("//bazel/zig_py:defs.bzl", "zig_py_library")
+
+zig_py_library(
+    name = "shared_zig",
+    main = "shared.zig",
+    deps = [],
+)
+
+py_binary(
+    name = "main",
+    srcs = ["main.py", "shared.py"],
+    deps = [":shared_zig"]
+)
